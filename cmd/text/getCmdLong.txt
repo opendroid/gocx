@@ -1,5 +1,5 @@
 get: does a readonly operation on a CX agent with
-    -agentId=${agentID}
+    -agentID=${agentID}
     Subcommands:
         intents: to fetch the intents
         flows: get all flows

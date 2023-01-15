@@ -21,7 +21,6 @@ var (
 		Version: version,
 		Short:   "gocx is a command line toolset for managing the Dialogflow CX agents",
 		Long:    rootCmdLong,
-		Run:     rootCmdHandler,
 	}
 )
 
@@ -29,18 +28,12 @@ func Execute() error {
 	return rootCmd.Execute()
 }
 
-// rootCmdHandler executed on root command.
-func rootCmdHandler(cmd *cobra.Command, args []string) {
-	if v, err := cmd.Flags().GetBool("verbose"); err != nil {
-		log.Sugar.Errorw("rootCmdHandler", "error", err)
-		return
-	} else {
-		verbose = v
-		log.Sugar.Infow("rootCmdHandler", "verbose", v, "type", v)
-	}
-}
+// init the rootCmd.
 func init() {
 	rootCmd.PersistentFlags().StringVarP(&agentUUID, "agentID", "a", "", "the Dialogflow CX agent UUID")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
-	rootCmd.MarkFlagRequired("agentID")
+	// gotcha: https://stackoverflow.com/questions/52322279/cobra-markpersistentflagrequired-not-working-on-root
+	if err := rootCmd.MarkPersistentFlagRequired("agentID"); err != nil {
+		log.Sugar.Errorw("init", "error", err)
+	}
 }

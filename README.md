@@ -2,8 +2,12 @@
 Dialogflow CX agent handy commands. 
 
 # Commands
+
+```sh
+# EXample shell commands
 gocx help
-gocx agent get intents $agent-id -dir ${dir} -file ${filename} -verbose
-gocx agent get flows $agent-id  -dir ${dir} -file ${filename} ${filename} -verbose
-gocx agent get pages $agent-id -dir ${dir} -file ${filename} ${filename} -verbose 
-gocx agent server -port=9000
+gocx get intents $agent-id -dir ${dir} -file ${filename} -verbose
+gocx get flows $agent-id  -dir ${dir} -file ${filename} ${filename} -verbose
+gocx get pages $agent-id -dir ${dir} -file ${filename} ${filename} -verbose 
+gocx server -port=9000
+```

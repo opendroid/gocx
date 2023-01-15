@@ -13,6 +13,10 @@ var (
 
 // init initializes the Sugar logger.
 func init() {
+	setupSugarLogger()
+}
+
+func setupSugarLogger() {
 	var config zap.Config
 	if os.Getenv("GOCX_ENV") == "DEVELOPMENT" {
 		config = zap.NewDevelopmentConfig()

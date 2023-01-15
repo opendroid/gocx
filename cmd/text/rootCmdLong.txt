@@ -2,7 +2,7 @@ NAME
     gocx: is a command line toolset for managing the Dialogflow CX agents.
 
 SYNOPSIS
-    gocx COMMAND [--agentID=AGENT-UUID] [--input=FILENAME]
+    gocx COMMAND [Subcommands] [--agentID=AGENT-UUID] [--input=FILENAME]
 
 DESCRIPTION
     get: does a readonly operation on 
@@ -23,5 +23,10 @@ COMMAND
 GLOBAL FLAGS
     -- agentID=AGENT-UUID
     -- input=FILENAME
-    -- toLand=LOCALE
-  
+    -- toLang=LOCALE
+    -- output=FILENAME
+
+ENVIRONMENT VARIABLES
+    -- GOCXDATADIR=/path/to/output/dir
+    -- GOCX_ENV=DEVELOPMENT (for Development)
+    -- GOOGLE_APPLICATION_CREDENTIALS

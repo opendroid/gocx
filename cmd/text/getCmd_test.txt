@@ -1,0 +1,25 @@
+get: does a readonly operation on a CX agent with
+    -agentID=${agentID}
+    Subcommands:
+        intents: to fetch the intents
+        flows: get all flows
+        pages: get pages for each flow
+
+Usage:
+  gocx get [command]
+
+Aliases:
+  get, g
+
+Available Commands:
+  flows       get the Dialogflow CX agent flows
+  intents     get the Dialogflow CX agent intents
+
+Flags:
+  -h, --help   help for get
+
+Global Flags:
+  -a, --agentID string   the Dialogflow CX agent UUID
+  -v, --verbose          verbose output
+
+Use "gocx get [command] --help" for more information about a command.
