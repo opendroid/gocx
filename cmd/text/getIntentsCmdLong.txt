@@ -1,0 +1,2 @@
+intents: get all intents and phrases of an agent
+    

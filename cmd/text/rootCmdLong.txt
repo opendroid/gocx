@@ -1,0 +1,27 @@
+NAME
+    gocx: is a command line toolset for managing the Dialogflow CX agents.
+
+SYNOPSIS
+    gocx COMMAND [--agentID=AGENT-UUID] [--input=FILENAME]
+
+DESCRIPTION
+    get: does a readonly operation on 
+        -agentID=${agent-UUID}
+        intents: to fetch the intents
+        flows: get all flows
+        pages: get pages for each flow
+    update: does a rewrite of
+        -agentID=${agent-UUID}
+            intents: 
+                utterances: Update utterances for intents
+                -input=${file}
+COMMAND
+    get: intents, flow and page properties of an --agentID
+    update: intents, flow and page properties of an --agentID
+    translate: utterances from english to a new locale
+
+GLOBAL FLAGS
+    -- agentID=AGENT-UUID
+    -- input=FILENAME
+    -- toLand=LOCALE
+  
