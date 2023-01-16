@@ -1,0 +1,19 @@
+### Go template
+# Binaries for programs and plugins
+
+# Test binary, built with `go test -c`
+# Output of the go coverage tool, specifically when used with LiteIDE
+.idea
+.git
+.vscode
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Helper files
+the-gpl-autocomplete.sh
+*.md
+.devcontainer
+README.md
+LICENSE
+.gitignore
