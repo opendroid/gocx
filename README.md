@@ -1,7 +1,8 @@
 # gocx
-Dialogflow CX agent handy commands. 
 
-# Commands
+Dialogflow CX agent handy commands.
+
+## Commands
 
 ```sh
 # Example shell commands

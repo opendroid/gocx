@@ -2,7 +2,6 @@ package cmd
 
 import (
 	_ "embed"
-	"fmt"
 	"strings"
 
 	"github.com/opendroid/gocx/log"
@@ -56,20 +55,27 @@ func init() {
 func getIntentsHandler(cmd *cobra.Command, args []string) {
 	var v bool
 	var err error
-	if v, err = cmd.Flags().GetBool("verbose"); err != nil {
-		log.Sugar.Errorw("getIntentsHandler", "error", err, "n", len(args), "args", strings.Join(args, ", "))
+	if v, err = cmd.Flags().GetBool(_verboseFlag); err != nil {
+		log.Sugar.Errorw("getIntentsHandler", "error", err, "flag", _verboseFlag, "n", len(args), "args", strings.Join(args, ", "))
 		return
 	}
-	log.Sugar.Infow("getIntentsHandler", "verbose", v, "type", fmt.Sprintf("%T", v), "n", len(args), "args", strings.Join(args, ", "))
+	if agentUUID, err = cmd.Flags().GetString(_agentUUIDFlag); err != nil {
+		log.Sugar.Errorw("getIntentsHandler", "error", err, "flag", _agentUUIDFlag, "n", len(args), "args", strings.Join(args, ", "))
+		return
+	}
+	log.Sugar.Infow("getIntentsHandler", _verboseFlag, v, _agentUUIDFlag, agentUUID, "n", len(args), "args", strings.Join(args, ", "))
+	// projectID, locationID, agentID, languageCode string, verbose bool
+	// agentID="20481884-1290-479c-9e66-8b8c72e3f6eb"
+	model.ShowIntents("eats-universal-a", "global", agentUUID, "en", v)
 }
 
 // getFlowsHandler executed on "root get flows" command.
 func getFlowsHandler(cmd *cobra.Command, args []string) {
 	var v bool
 	var err error
-	if v, err = cmd.Flags().GetBool("verbose"); err != nil {
+	if v, err = cmd.Flags().GetBool(_verboseFlag); err != nil {
 		log.Sugar.Errorw("getFlowsHandler", "error", err, "n", len(args), "args", strings.Join(args, ", "))
 		return
 	}
-	log.Sugar.Infow("getFlowsHandler", "verbose", v, "type", fmt.Sprintf("%T", v), "n", len(args), "args", strings.Join(args, ", "))
+	log.Sugar.Infow("getFlowsHandler", "verbose", v, "n", len(args), "args", strings.Join(args, ", "))
 }
