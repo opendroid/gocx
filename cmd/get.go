@@ -47,7 +47,6 @@ var (
 
 // init the getCmd and it as sub-command of rootCmd: root => get => intents
 func init() {
-	rootCmd.AddCommand(getCmd)
 	getCmd.AddCommand(getIntents, getFlows)
 }
 
