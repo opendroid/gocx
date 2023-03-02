@@ -137,3 +137,11 @@ func (a *cxAgent) GetAgent(ctx context.Context, opts *CXAgentOpts) (*cxpb.Agent,
 	}
 	return nil, nil
 }
+
+// Close closes the agent.
+func (a *cxAgent) Close() {
+	a.intentsClient.Close()
+	a.flowClient.Close()
+	a.pageClient.Close()
+	a.agentClient.Close()
+}

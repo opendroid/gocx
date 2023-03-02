@@ -12,6 +12,7 @@ import (
 type Model interface {
 	ShowIntents(projectID, locationID, agentID, languageCode string, verbose bool)
 	SaveIntents(projectID, locationID, agentID, languageCode, filename string, verbose bool)
+	Close()
 }
 
 // dfcx is the struct that satisfies Model interface.
@@ -46,4 +47,9 @@ func (dfcx *dfcx) ShowIntents(projectID, locationID, agentID, languageCode strin
 
 // SaveIntents saves the intents to a file.
 func (dfcx *dfcx) SaveIntents(projectID, locationID, agentID, languageCode, filename string, verbose bool) {
+}
+
+// Close closes the Dialogflow CX clients.
+func (dfcx *dfcx) Close() {
+	dfcx.agent.Close()
 }

@@ -14,4 +14,5 @@ type CX interface {
 	GetFlows(ctx context.Context, opts *CXAgentOpts) ([]*cxpb.Flow, error)
 	GetPages(ctx context.Context, opts *CXAgentOpts) ([]*cxpb.Page, error)
 	GetAgent(ctx context.Context, opts *CXAgentOpts) (*cxpb.Agent, error)
+	Close()
 }
